@@ -1,0 +1,7 @@
+http://localhost:8000/currency-exchange/from/USD/to/INR
+
+http://localhost:8000/h2-console
+
+http://localhost:8100/currency-conversion/from/USD/to/INR/quantity/10
+
+http://localhost:8100/currency-conversion-feign/from/AUD/to/INR/quantity/10

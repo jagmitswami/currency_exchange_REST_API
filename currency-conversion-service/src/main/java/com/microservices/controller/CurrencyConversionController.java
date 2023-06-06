@@ -22,5 +22,12 @@ public class CurrencyConversionController {
 
 		return currencyConversionService.getCurrencyConversionValuesUsingRestTemplate(from, to, quantity);
 	}
+	
+	@GetMapping("/currency-conversion-feign/from/{from}/to/{to}/quantity/{quantity}")
+	public CurrencyConversion retrieveExchangeValueUsingFeignClient(@PathVariable String from, @PathVariable String to,
+			@PathVariable BigDecimal quantity) {
+
+		return currencyConversionService.getCurrencyConversionValuesUsingRestTemplateUsingFeignClient(from, to, quantity);
+	}
 
 }
