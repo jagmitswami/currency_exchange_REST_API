@@ -6,7 +6,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.microservices.model.CurrencyConversion;
 
-@FeignClient(name = "currency-exchange", url = "localhost:8000")
+//@FeignClient(name = "currency-exchange", url = "localhost:8000")
+
+/*Now it will dynamically get the port details from the naming server
+ * by load balancing between all instances present
+ */
+@FeignClient(name = "currency-exchange")
 public interface CurrencyExchangeProxy {
 
 	@GetMapping("/currency-exchange/from/{from}/to/{to}")

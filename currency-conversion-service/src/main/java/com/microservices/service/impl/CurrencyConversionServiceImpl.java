@@ -33,6 +33,7 @@ public class CurrencyConversionServiceImpl implements CurrencyConversionService 
 
 		currencyConversion.setQuantity(quantity);
 		currencyConversion.setTotalCalculatedAmount(quantity.multiply(currencyConversion.getConversionMultiple()));
+		currencyConversion.setEnvironment(currencyConversion.getEnvironment() + " rest template");
 
 		return currencyConversion;
 
@@ -45,6 +46,7 @@ public class CurrencyConversionServiceImpl implements CurrencyConversionService 
 
 		currencyConversion.setQuantity(quantity);
 		currencyConversion.setTotalCalculatedAmount(quantity.multiply(currencyConversion.getConversionMultiple()));
+		currencyConversion.setEnvironment(currencyConversion.getEnvironment() + " feign");
 
 		return currencyConversion;
 	}
