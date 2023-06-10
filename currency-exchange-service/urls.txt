@@ -1,4 +1,5 @@
 http://localhost:8000/currency-exchange/from/USD/to/INR
+http://localhost:8000/sample-api
 
 http://localhost:8000/h2-console
 
