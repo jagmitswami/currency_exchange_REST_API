@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.microservices.model.CurrencyExchange;
 import com.microservices.service.CurrencyExchangeService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 public class CurrencyExchangeController {
 
@@ -22,6 +25,7 @@ public class CurrencyExchangeController {
 	public CurrencyExchange retrieveExchangeValue(@PathVariable String from, @PathVariable String to) {
 //		CurrencyExchange currencyExchange = new CurrencyExchange(1000L, from, to, BigDecimal.valueOf(65));
 
+		log.info("retrieveExchangeValue {} -> {}", from, to);
 		CurrencyExchange currencyExchange = currencyExchangeService.getCurrencyExchangeValues(from, to);
 
 		String port = environment.getProperty("local.server.port");
