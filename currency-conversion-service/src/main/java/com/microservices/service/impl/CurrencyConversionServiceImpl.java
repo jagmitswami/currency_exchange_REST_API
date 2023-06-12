@@ -18,6 +18,9 @@ public class CurrencyConversionServiceImpl implements CurrencyConversionService 
 	@Autowired
 	private CurrencyExchangeProxy currencyExchangeProxy;
 
+	@Autowired
+	private RestTemplate restTemplate;
+	
 	@Override
 	public CurrencyConversion getCurrencyConversionValuesUsingRestTemplate(String from, String to,
 			BigDecimal quantity) {
@@ -26,7 +29,7 @@ public class CurrencyConversionServiceImpl implements CurrencyConversionService 
 		uriVariables.put("from", from);
 		uriVariables.put("to", to);
 
-		ResponseEntity<CurrencyConversion> responseEntity = new RestTemplate().getForEntity(
+		ResponseEntity<CurrencyConversion> responseEntity = restTemplate.getForEntity(
 				"http://localhost:8000/currency-exchange/from/{from}/to/{to}", CurrencyConversion.class, uriVariables);
 
 		CurrencyConversion currencyConversion = responseEntity.getBody();
